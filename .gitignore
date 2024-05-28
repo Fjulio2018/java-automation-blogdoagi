@@ -33,8 +33,7 @@ test-output/
 *.project
 .classpath
 
-# Arquivos de configuração do TestNG
-testng.xml
+
 
 # Arquivos de relatório do TestNG
 test-output/
