@@ -1,0 +1,40 @@
+# Arquivos de compilação do Maven
+target/
+
+# Arquivos de dependência Maven
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs e arquivos de saída
+logs/
+*.log
+*.log.*
+*.txt
+
+# Arquivos de configuração do IDE
+.idea/
+.vscode/
+
+# Arquivos de resultados de teste
+test-output/
+
+# Arquivos de configuração específicos do sistema
+*.iml
+*.ipr
+*.iws
+*.class
+
+# Arquivos de cache e build
+*.cache
+*.project
+.classpath
+
+# Arquivos de configuração do TestNG
+testng.xml
+
+# Arquivos de relatório do TestNG
+test-output/
