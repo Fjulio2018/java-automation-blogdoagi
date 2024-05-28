@@ -9,7 +9,6 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 - Java 11
 - Maven 3.9.6
 
-
 ## Configuração do Projeto
 
 1. Clone este repositório em sua máquina local:
