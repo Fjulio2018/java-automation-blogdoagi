@@ -1,19 +1,18 @@
 package br.com.blogdoagi.tests;
 
 import br.com.blogdoagi.pages.MenuAgiPage;
-import br.com.blogdoagi.pages.ResultadoPage;
+import br.com.blogdoagi.utils.config.ConfigLoader;
 import br.com.blogdoagi.utils.hooks.Hooks;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import br.com.blogdoagi.pages.HomePage;
 
-import static br.com.blogdoagi.utils.Constantes.Constantes.*;
-
 
 public class BlogTests extends Hooks {
 
     public static String indexBusca = "Vagas";
+
 
 
     @Test(priority = 1)
@@ -39,14 +38,16 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 3)
     public void validaQuantPostsNaBusca() {
+        ConfigLoader conf = new ConfigLoader();
 
 
         int quantBuscaAtual = new HomePage(navegador)
                 .acessaHomePage()
                 .buscaPorMenuAgi(indexBusca)
                 .quantNaBusca();
+        Assert.assertEquals(quantBuscaAtual, conf.getIntProperty("quantBuscaEsperada"), "Quantidade não esta correta");
 
-        Assert.assertEquals(quantBuscaAtual, QUANTBUSCAESPERADA, "Quantidade não esta correta");
+
 
 
     }
@@ -79,3 +80,8 @@ public class BlogTests extends Hooks {
 
 
 }
+
+
+
+
+

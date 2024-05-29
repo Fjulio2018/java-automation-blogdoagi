@@ -1,5 +1,6 @@
 package br.com.blogdoagi.pages;
 
+import br.com.blogdoagi.bases.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

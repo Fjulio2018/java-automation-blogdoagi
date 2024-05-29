@@ -1,4 +1,4 @@
-package br.com.blogdoagi.pages;
+package br.com.blogdoagi.bases;
 
 import org.openqa.selenium.*;
 
@@ -11,13 +11,13 @@ public abstract class BasePage {
 
 
     protected WebDriver navegador;
-    private WebDriverWait wait;
+
 
     public BasePage(WebDriver navegador) {
+
         this.navegador = navegador;
-        this.wait = new WebDriverWait(navegador, Duration.ofSeconds(10)); // Increased wait time to 10 seconds
         PageFactory.initElements(navegador, this);
-        System.out.println("PageFactory: initialized");
+
     }
 
 

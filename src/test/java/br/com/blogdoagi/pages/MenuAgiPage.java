@@ -1,5 +1,6 @@
 package br.com.blogdoagi.pages;
 
+import br.com.blogdoagi.bases.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import org.openqa.selenium.*;
 
-public class MenuAgiPage extends BasePage{
+public class MenuAgiPage extends BasePage {
     protected WebDriver navegador;
     private WebDriverWait wait;
 

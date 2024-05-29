@@ -1,5 +1,6 @@
 package br.com.blogdoagi.utils.hooks;
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +15,7 @@ public class Hooks {
     protected WebDriver navegador;
     public static WebDriverWait wait;
 
+
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -22,6 +24,9 @@ public class Hooks {
         navegador.manage().deleteAllCookies();
         navegador.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         System.out.println("Metodo iniciado: SetUp");
+
+
+
 
     }
 

@@ -1,10 +1,10 @@
 package br.com.blogdoagi.pages;
 
+import br.com.blogdoagi.bases.BasePage;
+import br.com.blogdoagi.utils.config.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import static br.com.blogdoagi.utils.Constantes.Constantes.*;
 import static br.com.blogdoagi.utils.hooks.Hooks.normalizarString;
 
 public class HomePage extends BasePage {
@@ -13,14 +13,17 @@ public class HomePage extends BasePage {
         super(navegador);
     }
 
+
     @Override
     public WebElement getOagiMenu() {
         return null;
     }
 
     public HomePage acessaHomePage() {
+        ConfigLoader conf = new ConfigLoader();
+
         System.out.println("Metodo iniciado: acessarHomePage");
-        navegador.navigate().to(URLHOMEPAGE);
+        navegador.navigate().to(conf.getProperty("URL_HOMEPAGE"));
         return new HomePage(navegador);
     }
 
