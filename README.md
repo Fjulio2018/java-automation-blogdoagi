@@ -96,8 +96,8 @@ Cenário: Validação do Menu Agi
 
 Dado que acesse uma pagina do Blog
 Quando validar o Menu
-Então certifico a presença do logo
-E certifico a presença do primeiro item do menu
+Então certifico a presença do logo e menu
+
 
 Cenário: Validar quantidade de post em uma busca
 
