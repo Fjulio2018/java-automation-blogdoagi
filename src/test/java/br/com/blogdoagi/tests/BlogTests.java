@@ -1,5 +1,6 @@
 package br.com.blogdoagi.tests;
 
+import br.com.blogdoagi.pages.MenuAgiPage;
 import br.com.blogdoagi.pages.ResultadoPage;
 import br.com.blogdoagi.utils.hooks.Hooks;
 
@@ -27,10 +28,8 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 2)
     public void validaMenuHomePage() {
-        boolean acessouMenu = new HomePage(navegador)
-                .acessaHomePage()
-                .certificaHomePage();
-
+        boolean acessouMenu = new MenuAgiPage(navegador)
+                .certificaMenu();
         Assert.assertTrue(acessouMenu, "Menu não esta presente");
 
     }

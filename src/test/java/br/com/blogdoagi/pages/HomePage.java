@@ -13,12 +13,12 @@ public class HomePage extends BasePage {
         super(navegador);
     }
 
-    @Override
+
     public WebElement getOagiMenu() {
         return null;
     }
 
-    public HomePage acessaHomePage() {
+    public static HomePage acessaHomePage() {
         System.out.println("Metodo iniciado: acessarHomePage");
         navegador.navigate().to(URLHOMEPAGE);
         return new HomePage(navegador);
@@ -47,7 +47,7 @@ public class HomePage extends BasePage {
 
 
     public CarreiraPage acesCarreiraPageMenu() {
-        MenuAgi menu = new MenuAgi(navegador);
+        MenuAgiPage menu = new MenuAgiPage(navegador);
         System.out.println("Metodo iniciado: acessarCarreiraPage");
         acessaHomePage();
         Actions actions = new Actions(navegador);
@@ -57,7 +57,7 @@ public class HomePage extends BasePage {
     }
 
     public ResultadoPage buscaPorMenuAgi(String indexBusca){
-        MenuAgi menu = new MenuAgi(navegador);
+        MenuAgiPage menu = new MenuAgiPage(navegador);
         menu.buscaPorIndex(indexBusca);
         return new ResultadoPage(navegador);
     }

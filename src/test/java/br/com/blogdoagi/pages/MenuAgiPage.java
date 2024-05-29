@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import org.openqa.selenium.*;
 
-public class MenuAgi extends BasePage{
+public class MenuAgiPage extends BasePage{
     protected WebDriver navegador;
     private WebDriverWait wait;
 
@@ -25,7 +25,7 @@ public class MenuAgi extends BasePage{
     @FindBy(css = ".search-submit")
     private WebElement searchSubmitButton;
 
-    public MenuAgi(WebDriver navegador) {
+    public MenuAgiPage(WebDriver navegador) {
 
         super(navegador);
         this.wait = new WebDriverWait(navegador, Duration.ofSeconds(10));
@@ -70,6 +70,7 @@ public class MenuAgi extends BasePage{
 
     public boolean certificaMenu() {
         System.out.println("Method started: certificaMenu");
+        HomePage.acessaHomePage();
         wait.until(ExpectedConditions.visibilityOf(siteLogo));
         wait.until(ExpectedConditions.visibilityOf(oagiMenu));
         return siteLogo.isDisplayed() && oagiMenu.isDisplayed();

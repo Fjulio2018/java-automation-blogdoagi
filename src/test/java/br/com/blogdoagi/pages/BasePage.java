@@ -10,7 +10,7 @@ import java.time.Duration;
 public abstract class BasePage {
 
 
-    protected WebDriver navegador;
+    protected static WebDriver navegador;
     private WebDriverWait wait;
 
     public BasePage(WebDriver navegador) {
