@@ -116,6 +116,6 @@ Cenário: Valida acesso para página Carreira pelo menu
 
 Dado que acesse a HomePage
 Quando acessar o menu 
-E acessar i link Carreira
+E acessar o link Carreira
 Então sistema retorna a página carreira para Validação
 
