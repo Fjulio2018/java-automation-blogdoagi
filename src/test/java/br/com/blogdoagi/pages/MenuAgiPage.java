@@ -70,7 +70,6 @@ public class MenuAgiPage extends BasePage{
 
     public boolean certificaMenu() {
         System.out.println("Method started: certificaMenu");
-        HomePage.acessaHomePage();
         wait.until(ExpectedConditions.visibilityOf(siteLogo));
         wait.until(ExpectedConditions.visibilityOf(oagiMenu));
         return siteLogo.isDisplayed() && oagiMenu.isDisplayed();

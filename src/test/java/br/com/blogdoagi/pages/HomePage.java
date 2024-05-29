@@ -13,12 +13,12 @@ public class HomePage extends BasePage {
         super(navegador);
     }
 
-
+    @Override
     public WebElement getOagiMenu() {
         return null;
     }
 
-    public static HomePage acessaHomePage() {
+    public HomePage acessaHomePage() {
         System.out.println("Metodo iniciado: acessarHomePage");
         navegador.navigate().to(URLHOMEPAGE);
         return new HomePage(navegador);

@@ -28,6 +28,8 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 2)
     public void validaMenuHomePage() {
+        HomePage hp = new HomePage(navegador);
+        hp.acessaHomePage();
         boolean acessouMenu = new MenuAgiPage(navegador)
                 .certificaMenu();
         Assert.assertTrue(acessouMenu, "Menu não esta presente");
