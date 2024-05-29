@@ -103,6 +103,7 @@ Cenário: Valida fluxo de busca de vagas
   Quando performar uma busca de vagas no search do menu
   E acessar a busca desejada
   Então sistema retorna a página com o link para o gupy
+  
 
 Cenario: Valida acesso para pagina Carreira pelo menu
 Dado que acesse a HomePage
