@@ -19,6 +19,11 @@ public class ResultadoPage extends BasePage {
         super(navegador);
     }
 
+    @Override
+    public WebElement getOagiMenu() {
+        return null;
+    }
+
     public boolean certificaResultadoPage() {
 
         return true;

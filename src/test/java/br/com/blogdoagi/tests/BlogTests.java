@@ -29,7 +29,7 @@ public class BlogTests extends Hooks {
     public void validaMenuHomePage() {
         boolean acessouMenu = new HomePage(navegador)
                 .acessaHomePage()
-                .certificaMenu();
+                .certificaHomePage();
 
         Assert.assertTrue(acessouMenu, "Menu não esta presente");
 
@@ -42,7 +42,7 @@ public class BlogTests extends Hooks {
 
         int quantBuscaAtual = new HomePage(navegador)
                 .acessaHomePage()
-                .buscaPorIndex(indexBusca)
+                .buscaPorMenuAgi(indexBusca)
                 .quantNaBusca();
 
         Assert.assertEquals(quantBuscaAtual, QUANTBUSCAESPERADA, "Quantidade não esta correta");
@@ -55,7 +55,7 @@ public class BlogTests extends Hooks {
         indexBusca = "40 Vagas";
         boolean acessouVagaPage = new HomePage(navegador)
                 .acessaHomePage()
-                .buscaPorIndex(indexBusca)
+                .buscaPorMenuAgi(indexBusca)
                 .escolhaPost()
                 .validaPost();
 

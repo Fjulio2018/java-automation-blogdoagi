@@ -16,6 +16,11 @@ public class CarreiraPage extends BasePage {
 
     }
 
+    @Override
+    public WebElement getOagiMenu() {
+        return null;
+    }
+
     public String getCarreiraTitle() {
         System.out.println("Metodo iniciado: getCarreira");
         return carreiraTitle.getText();

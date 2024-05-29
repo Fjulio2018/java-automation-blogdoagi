@@ -19,6 +19,11 @@ public class Anucio40VagasPage extends BasePage {
 
     }
 
+    @Override
+    public WebElement getOagiMenu() {
+        return null;
+    }
+
     public boolean validaPost() {
         System.out.println("Metodo iniciado: getAnuncioTitle");
 
