@@ -21,7 +21,7 @@ public class BlogTests extends Hooks {
     @Test(priority = 1)
     public void validaAcessoHomePage() {
         setBrowserName("firefox");
-        initialize(); // Reinitialize to apply the browser setting
+        initialize();
 
         boolean acessouhomePage = new HomePage(navegador)
                 .acessaHomePage()
@@ -33,7 +33,7 @@ public class BlogTests extends Hooks {
     @Test(priority = 2)
     public void validaMenuHomePage() {
         setBrowserName("chrome");
-        initialize(); // Reinitialize to apply the browser setting
+        initialize();
 
         HomePage hp = new HomePage(navegador);
         hp.acessaHomePage();
@@ -45,7 +45,7 @@ public class BlogTests extends Hooks {
     @Test(priority = 3)
     public void validaQuantPostsNaBusca() {
         setBrowserName("firefox");
-        initialize(); // Reinitialize to apply the browser setting
+        initialize();
 
         ConfigLoader conf = new ConfigLoader();
         int quantBuscaAtual = new HomePage(navegador)
@@ -58,7 +58,7 @@ public class BlogTests extends Hooks {
     @Test(priority = 4)
     public void fluxoBuscaVagasSucesso() throws InterruptedException {
         setBrowserName("chrome");
-        initialize(); // Reinitialize to apply the browser setting
+        initialize();
 
         indexBusca = "40 Vagas";
         boolean acessouVagaPage = new HomePage(navegador)

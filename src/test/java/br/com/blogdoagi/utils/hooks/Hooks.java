@@ -31,7 +31,7 @@ public class Hooks {
 
         navegador.manage().window().maximize();
         navegador.manage().deleteAllCookies();
-        navegador.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        navegador.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
 
     public void quit() {
