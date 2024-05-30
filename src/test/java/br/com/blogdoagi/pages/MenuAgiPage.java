@@ -70,15 +70,12 @@ public class MenuAgiPage extends BasePage {
     }
 
     public boolean certificaMenu() {
-        System.out.println("Method started: certificaMenu");
         wait.until(ExpectedConditions.visibilityOf(siteLogo));
         wait.until(ExpectedConditions.visibilityOf(oagiMenu));
         return siteLogo.isDisplayed() && oagiMenu.isDisplayed();
     }
     public ResultadoPage buscaPorIndex(String index) {
-        System.out.println("Method started: buscaPorIndex");
         lupaField.click();
-        System.out.println("Abriu o campo");
         searchField.sendKeys(index);
         searchField.sendKeys(Keys.ENTER);
         return new ResultadoPage(navegador);

@@ -19,7 +19,7 @@ public class BlogTests extends Hooks {
     }
 
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Acesso a HomePage")
     public void validaAcessoHomePage() {
         setBrowserName(conf.getProperty("firefoxBrowserName"));
         initialize();
@@ -31,7 +31,7 @@ public class BlogTests extends Hooks {
         Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, description = "Validação do Menu Agi")
     public void validaMenuHomePage() {
         setBrowserName(conf.getProperty("chromeBrowserName"));
         initialize();
@@ -43,7 +43,7 @@ public class BlogTests extends Hooks {
         Assert.assertTrue(acessouMenu, "Menu não esta presente");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, description = "Validar quantidade de post em uma busca")
     public void validaQuantPostsNaBusca() {
         setBrowserName(conf.getProperty("firefoxBrowserName"));
         initialize();
@@ -56,7 +56,7 @@ public class BlogTests extends Hooks {
         Assert.assertEquals(quantBuscaAtual, conf.getIntProperty("quantBuscaEsperada"), "Quantidade não esta correta");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4, description = "Valida fluxo de busca de vagas")
     public void fluxoBuscaVagasSucesso() throws InterruptedException {
         setBrowserName(conf.getProperty("chromeBrowserName"));
         initialize();
@@ -70,7 +70,7 @@ public class BlogTests extends Hooks {
         Assert.assertTrue(acessouVagaPage, "vaga não disponivel");
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5, description = "Valida acesso para página Carreira pelo menu")
     public void acessarCarreiraPage() {
 
         String tituloEsperado = "Carreira";

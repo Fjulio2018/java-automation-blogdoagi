@@ -15,6 +15,7 @@ public class Anucio40VagasPage extends BasePage {
     WebElement goupyagibankLink;
 
 
+
     public Anucio40VagasPage(WebDriver navegador) {
         super(navegador);
 
@@ -26,7 +27,6 @@ public class Anucio40VagasPage extends BasePage {
     }
 
     public boolean validaPost() {
-        System.out.println("Metodo iniciado: getAnuncioTitle");
 
         if (anuncioTitle.isDisplayed() && goupyagibankLink.isDisplayed()) {
             return true;

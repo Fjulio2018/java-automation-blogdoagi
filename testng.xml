@@ -7,13 +7,7 @@
     <test name="Blog Tests">
         <classes>
             <class name="br.com.blogdoagi.tests.BlogTests">
-                <methods>
-                    <include name="validaAcessoHomePage"/>
-                    <include name="validaMenuHomePage"/>
-                    <include name="validaQuantPostsNaBusca"/>
-                    <include name="fluxoBuscaVagasSucesso"/>
-                    <include name="acessarCarreiraPage"/>
-                </methods>
+
             </class>
         </classes>
     </test>

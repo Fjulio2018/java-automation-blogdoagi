@@ -23,7 +23,6 @@ public class CarreiraPage extends BasePage {
     }
 
     public String getCarreiraTitle() {
-        System.out.println("Metodo iniciado: getCarreira");
         return carreiraTitle.getText();
     }
 

@@ -22,7 +22,6 @@ public class HomePage extends BasePage {
     public HomePage acessaHomePage() {
         ConfigLoader conf = new ConfigLoader();
 
-        System.out.println("Metodo iniciado: acessarHomePage");
         navegador.navigate().to(conf.getProperty("URL_HOMEPAGE"));
         return new HomePage(navegador);
     }
@@ -36,9 +35,6 @@ public class HomePage extends BasePage {
         String stringNormalizada1 = normalizarString(tituloEsperado);
         String stringNormalizada2 = normalizarString(tituloAtual);
 
-        System.out.println("Titulo da HP esperado:" + stringNormalizada1);
-        System.out.println("Titulo da HP atual: " + stringNormalizada2);
-
 
         if (stringNormalizada2.contains(stringNormalizada1)) {
             return true;
@@ -51,7 +47,6 @@ public class HomePage extends BasePage {
 
     public CarreiraPage acesCarreiraPageMenu() {
         MenuAgiPage menu = new MenuAgiPage(navegador);
-        System.out.println("Metodo iniciado: acessarCarreiraPage");
         acessaHomePage();
         Actions actions = new Actions(navegador);
         actions.moveToElement(menu.getOagiMenu()).perform();

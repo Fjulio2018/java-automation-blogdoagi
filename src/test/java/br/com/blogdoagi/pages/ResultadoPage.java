@@ -11,8 +11,7 @@ public class ResultadoPage extends BasePage {
 
     @FindBy(css = "h2.entry-title.ast-blog-single-element")
     List<WebElement> entryTitles;
-    @FindBy(css = "p > a[href='https://agibank.gupy.io/&nbsp;&nbsp;&amp;nbsp']")
-    WebElement agibankLink;
+
 
 
     public ResultadoPage(WebDriver navegador) {
@@ -25,12 +24,10 @@ public class ResultadoPage extends BasePage {
     }
 
     public boolean certificaResultadoPage() {
-
         return true;
     }
 
     public int quantNaBusca() {
-        System.out.println("Metodo iniciado: quantNaBusca");
         int numberOfEntries = entryTitles.size();
         return entryTitles.size();
     }
