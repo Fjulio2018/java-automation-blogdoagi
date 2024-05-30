@@ -11,6 +11,7 @@ import br.com.blogdoagi.pages.HomePage;
 
 public class BlogTests extends Hooks {
     public static String indexBusca = "Vagas";
+    ConfigLoader conf = new ConfigLoader();
 
     @BeforeMethod
     public void setUp() {
@@ -20,7 +21,7 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 1)
     public void validaAcessoHomePage() {
-        setBrowserName("firefox");
+        setBrowserName(conf.getProperty("firefoxBrowserName"));
         initialize();
 
         boolean acessouhomePage = new HomePage(navegador)
@@ -32,7 +33,7 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 2)
     public void validaMenuHomePage() {
-        setBrowserName("chrome");
+        setBrowserName(conf.getProperty("chromeBrowserName"));
         initialize();
 
         HomePage hp = new HomePage(navegador);
@@ -44,10 +45,10 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 3)
     public void validaQuantPostsNaBusca() {
-        setBrowserName("firefox");
+        setBrowserName(conf.getProperty("firefoxBrowserName"));
         initialize();
 
-        ConfigLoader conf = new ConfigLoader();
+
         int quantBuscaAtual = new HomePage(navegador)
                 .acessaHomePage()
                 .buscaPorMenuAgi(indexBusca)
@@ -57,7 +58,7 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 4)
     public void fluxoBuscaVagasSucesso() throws InterruptedException {
-        setBrowserName("chrome");
+        setBrowserName(conf.getProperty("chromeBrowserName"));
         initialize();
 
         indexBusca = "40 Vagas";
@@ -71,8 +72,6 @@ public class BlogTests extends Hooks {
 
     @Test(priority = 5)
     public void acessarCarreiraPage() {
-        setBrowserName("firefox");
-        initialize();
 
         String tituloEsperado = "Carreira";
         String tituloAtual = new HomePage(navegador)

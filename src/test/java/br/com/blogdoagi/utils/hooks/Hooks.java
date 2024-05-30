@@ -23,11 +23,11 @@ public class Hooks {
         }
 
         if (browserName.equalsIgnoreCase("chrome")) {
-            System.out.println("Inicializando Browser: " + browserName);
+
             WebDriverManager.chromedriver().setup();
             navegador = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
-            System.out.println("Inicializando Browser: " + browserName);
+
             WebDriverManager.firefoxdriver().setup();
             navegador = new FirefoxDriver();
         }
