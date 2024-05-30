@@ -17,15 +17,17 @@ public class Hooks {
     }
 
     public void initialize() {
-        System.out.println("Inicializando Browser: " + browserName);
+
         if (navegador != null) {
             navegador.quit();
         }
 
         if (browserName.equalsIgnoreCase("chrome")) {
+            System.out.println("Inicializando Browser: " + browserName);
             WebDriverManager.chromedriver().setup();
             navegador = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
+            System.out.println("Inicializando Browser: " + browserName);
             WebDriverManager.firefoxdriver().setup();
             navegador = new FirefoxDriver();
         }
