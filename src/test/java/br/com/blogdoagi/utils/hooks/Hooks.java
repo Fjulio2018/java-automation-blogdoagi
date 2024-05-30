@@ -17,6 +17,7 @@ public class Hooks {
     }
 
     public void initialize() {
+        System.out.println("Inicializando Browser: " + browserName);
         if (navegador != null) {
             navegador.quit();
         }
@@ -32,6 +33,7 @@ public class Hooks {
         navegador.manage().window().maximize();
         navegador.manage().deleteAllCookies();
         navegador.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+
     }
 
     public void quit() {

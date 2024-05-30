@@ -72,7 +72,7 @@ public class BlogTests extends Hooks {
     @Test(priority = 5)
     public void acessarCarreiraPage() {
         setBrowserName("firefox");
-        initialize(); // Reinitialize to apply the browser setting
+        initialize();
 
         String tituloEsperado = "Carreira";
         String tituloAtual = new HomePage(navegador)
