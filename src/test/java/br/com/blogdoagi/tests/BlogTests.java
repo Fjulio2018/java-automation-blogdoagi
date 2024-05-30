@@ -18,7 +18,6 @@ public class BlogTests extends Hooks {
     }
 
 
-
     @Test(priority = 1)
     public void validaAcessoHomePage() {
         setBrowserName("firefox");
