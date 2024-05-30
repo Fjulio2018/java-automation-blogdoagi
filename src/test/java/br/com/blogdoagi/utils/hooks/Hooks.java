@@ -1,41 +1,51 @@
 package br.com.blogdoagi.utils.hooks;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.text.Normalizer;
 import java.util.concurrent.TimeUnit;
 
-
 public class Hooks {
     protected WebDriver navegador;
-    public static WebDriverWait wait;
+    protected static String browserName = "chrome";
 
-
-    @BeforeClass
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        navegador = new ChromeDriver();
-        navegador.manage().window().maximize();
-        navegador.manage().deleteAllCookies();
-        navegador.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        System.out.println("Metodo iniciado: SetUp");
-
-
-
-
+    public static void setBrowserName(String browserName) {
+        Hooks.browserName = browserName;
     }
 
-    @AfterClass
-    public void tearDown() {
+    public void initialize() {
         if (navegador != null) {
             navegador.quit();
         }
 
+        if (browserName.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            navegador = new ChromeDriver();
+        } else if (browserName.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            navegador = new FirefoxDriver();
+        }
+
+        navegador.manage().window().maximize();
+        navegador.manage().deleteAllCookies();
+        navegador.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    }
+
+    public void quit() {
+        if (navegador != null) {
+            navegador.quit();
+            navegador = null;
+        }
+    }
+
+    public void close() {
+        if (navegador != null) {
+            navegador.close();
+            navegador = null;
+        }
     }
 
     public static String normalizarString(String str) {
