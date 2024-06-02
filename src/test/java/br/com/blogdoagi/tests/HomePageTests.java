@@ -24,8 +24,8 @@ public class HomePageTests extends Hooks {
 
     }
 
-    @Test(priority = 1)
-//    @DisplayName("Acesso a HomePage")
+    @Test(priority = 1, description = "Acesso a HomePage")
+
     public void validaAcessoHomePage() {
         setBrowserName(conf.getProperty("firefoxBrowserName"));
         initialize();
@@ -34,7 +34,7 @@ public class HomePageTests extends Hooks {
 
         Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
     }
-    @Test(priority = 2)
+    @Test(priority = 2, description = "Validação da quantidade de links de Suas Finanças na HomePage")
     public void quantlinkFinancasHomePage(){
         int qntLinkEsperado = conf.getIntProperty("qntlinkFinancaExp");
         int qntLinkAtual = new HomePage(navegador)
