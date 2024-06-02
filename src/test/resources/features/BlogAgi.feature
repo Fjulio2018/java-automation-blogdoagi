@@ -10,6 +10,12 @@ Funcionalidade: Validação do Blog Agi
     Quando acessar HomePage
     Então valido que o título da página tenha "Blog do Agi"
 
+  Cenário: Validação da quantidade de links de Suas Finanças na HomePage
+
+     Dado que acesse a URL "https://blogdoagi.com.br/"
+     Quando pesquisar a quantidade de links de "Suas finanças"
+     Então valido que são 4 links na pagina
+
 
   Cenário: Validação do Menu Agi
 
