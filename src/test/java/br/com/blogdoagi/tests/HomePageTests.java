@@ -3,26 +3,21 @@ package br.com.blogdoagi.tests;
 import br.com.blogdoagi.bases.BasePage;
 import br.com.blogdoagi.pages.HomePage;
 import br.com.blogdoagi.utils.config.ConfigLoader;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import br.com.blogdoagi.utils.hooks.Hooks;
-
-import static br.com.blogdoagi.utils.hooks.Hooks.setBrowserName;
 
 public class HomePageTests extends Hooks {
     ConfigLoader conf = new ConfigLoader();
 
     @BeforeMethod
-    public void setUp(){
-   initialize();
-
-
+    public void setUp() {
+        initialize();
     }
+
 
     @Test(priority = 1, description = "Acesso a HomePage")
 
@@ -34,15 +29,15 @@ public class HomePageTests extends Hooks {
 
         Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
     }
+
     @Test(priority = 2, description = "Validação da quantidade de links de Suas Finanças na HomePage")
-    public void quantlinkFinancasHomePage(){
+    public void quantlinkFinancasHomePage() {
         int qntLinkEsperado = conf.getIntProperty("qntlinkFinancaExp");
         int qntLinkAtual = new HomePage(navegador)
                 .quantLinkFinancas();
 
-        Assert.assertEquals(qntLinkAtual, qntLinkEsperado ,  "Quantidade de link financas não esperada");
+        Assert.assertEquals(qntLinkAtual, qntLinkEsperado, "Quantidade de link financas não esperada");
     }
-
 
 
     @AfterMethod

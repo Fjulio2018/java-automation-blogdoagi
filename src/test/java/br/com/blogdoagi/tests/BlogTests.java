@@ -3,15 +3,12 @@ package br.com.blogdoagi.tests;
 import br.com.blogdoagi.pages.MenuAgiPage;
 import br.com.blogdoagi.utils.config.ConfigLoader;
 import br.com.blogdoagi.utils.hooks.Hooks;
-//import org.junit.jupiter.api.DisplayName;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import br.com.blogdoagi.pages.HomePage;
 
-
-//@Description("Testes de validação do Blog do Agi ")
 
 public class BlogTests extends Hooks {
     public static String indexBusca = "Vagas";
@@ -21,7 +18,6 @@ public class BlogTests extends Hooks {
     public void setUp() {
         initialize();
     }
-
 
 
     @Test(priority = 2, description = "Validação do Menu Agi")
