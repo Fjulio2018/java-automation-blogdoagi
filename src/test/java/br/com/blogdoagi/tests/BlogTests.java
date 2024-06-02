@@ -3,11 +3,15 @@ package br.com.blogdoagi.tests;
 import br.com.blogdoagi.pages.MenuAgiPage;
 import br.com.blogdoagi.utils.config.ConfigLoader;
 import br.com.blogdoagi.utils.hooks.Hooks;
+//import org.junit.jupiter.api.DisplayName;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 import br.com.blogdoagi.pages.HomePage;
+
+
+//@Description("Testes de validação do Blog do Agi ")
 
 public class BlogTests extends Hooks {
     public static String indexBusca = "Vagas";
@@ -19,17 +23,6 @@ public class BlogTests extends Hooks {
     }
 
 
-    @Test(priority = 1, description = "Acesso a HomePage")
-    public void validaAcessoHomePage() {
-        setBrowserName(conf.getProperty("firefoxBrowserName"));
-        initialize();
-
-        boolean acessouhomePage = new HomePage(navegador)
-                .acessaHomePage()
-                .certificaHomePage();
-
-        Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
-    }
 
     @Test(priority = 2, description = "Validação do Menu Agi")
     public void validaMenuHomePage() {
@@ -67,7 +60,7 @@ public class BlogTests extends Hooks {
                 .buscaPorMenuAgi(indexBusca)
                 .escolhaPost()
                 .validaPost();
-        Assert.assertTrue(acessouVagaPage, "vaga não disponivel");
+        Assert.assertTrue(acessouVagaPage, "vagas não disponiveis");
     }
 
     @Test(priority = 5, description = "Valida acesso para página Carreira pelo menu")

@@ -11,4 +11,11 @@
             </class>
         </classes>
     </test>
+    <test name="HomePage Tests">
+        <classes>
+            <class name="br.com.blogdoagi.tests.HomePageTests">
+
+            </class>
+        </classes>
+    </test>
 </suite>

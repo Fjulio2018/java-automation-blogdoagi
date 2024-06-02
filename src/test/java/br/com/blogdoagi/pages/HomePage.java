@@ -5,6 +5,10 @@ import br.com.blogdoagi.utils.config.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
+
 import static br.com.blogdoagi.utils.hooks.Hooks.normalizarString;
 
 public class HomePage extends BasePage {
@@ -12,6 +16,13 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver navegador) {
         super(navegador);
     }
+
+    @FindBy(css = "div.uagb-post__text > span.uagb-post__taxonomy.highlighted > a[href*=\"produtos\"] ")
+    private WebElement linkProdutoPage;
+    @FindBy(css = "div.uagb-post__text > span.uagb-post__taxonomy.highlighted > a[href*=\"suas-financas\"] ")
+    private List<WebElement> linkSuasFinancasPage;
+
+
 
 
     @Override
@@ -27,6 +38,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean certificaHomePage() {
+        acessaHomePage();
 
         String tituloEsperado = "Blog do Agi";
         String tituloAtual = navegador.getTitle();
@@ -58,6 +70,14 @@ public class HomePage extends BasePage {
         MenuAgiPage menu = new MenuAgiPage(navegador);
         menu.buscaPorIndex(indexBusca);
         return new ResultadoPage(navegador);
+    }
+
+    public int quantLinkFinancas(){
+
+        acessaHomePage();
+        return  linkSuasFinancasPage.size();
+
+
     }
 
 
