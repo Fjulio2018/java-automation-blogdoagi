@@ -8,14 +8,6 @@
     <name>java-automation-blogdoagi</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-api</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -37,13 +29,13 @@
             <version>5.8.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
         <dependency>
-            <groupId>org.uncommons</groupId>
+            <groupId>org.testng</groupId>
             <artifactId>reportng</artifactId>
-            <version>1.1.4</version>
+            <version>1.2.2</version>
             <scope>test</scope>
         </dependency>
+
 
     </dependencies>
 

@@ -30,7 +30,7 @@ public class HomePageTests extends Hooks {
         Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
     }
 
-    @Test(priority = 2, description = "Validação da quantidade de links de Suas Finanças na HomePage")
+    @Test(priority = 2, description = "Validacao da quantidade de links de Suas Financas na HomePage")
     public void quantlinkFinancasHomePage() {
         int qntLinkEsperado = conf.getIntProperty("qntlinkFinancaExp");
         int qntLinkAtual = new HomePage(navegador)

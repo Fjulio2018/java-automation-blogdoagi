@@ -20,7 +20,7 @@ public class BlogTests extends Hooks {
     }
 
 
-    @Test(priority = 2, description = "Validação do Menu Agi")
+    @Test(priority = 2, description = "Validacao do Menu Agi")
     public void validaMenuHomePage() {
         setBrowserName(conf.getProperty("chromeBrowserName"));
         initialize();
@@ -59,7 +59,7 @@ public class BlogTests extends Hooks {
         Assert.assertTrue(acessouVagaPage, "vagas não disponiveis");
     }
 
-    @Test(priority = 5, description = "Valida acesso para página Carreira pelo menu")
+    @Test(priority = 5, description = "Valida acesso para pagina Carreira pelo menu")
     public void acessarCarreiraPage() {
 
         String tituloEsperado = "Carreira";
