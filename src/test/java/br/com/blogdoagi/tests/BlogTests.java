@@ -29,7 +29,21 @@ public class BlogTests extends Hooks {
         hp.acessaHomePage();
         boolean acessouMenu = new MenuAgiPage(navegador)
                 .certificaMenu();
-        Assert.assertTrue(acessouMenu, "Menu não esta presente");
+        try {
+            Assert.assertTrue(acessouMenu, "Menu não esta presente");
+
+
+
+        }catch(AssertionError e){
+
+            String LogError = "Erro na presenca do Menu";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+
+        }
+
     }
 
     @Test(priority = 3, description = "Validar quantidade de post em uma busca")
@@ -42,7 +56,21 @@ public class BlogTests extends Hooks {
                 .acessaHomePage()
                 .buscaPorMenuAgi(indexBusca)
                 .quantNaBusca();
-        Assert.assertEquals(quantBuscaAtual, conf.getIntProperty("quantBuscaEsperada"), "Quantidade não esta correta");
+
+        try {
+            Assert.assertEquals(quantBuscaAtual, conf.getIntProperty("quantBuscaEsperada"), "Quantidade não esta correta");
+
+
+        }catch(AssertionError e){
+
+            String LogError = "Erro na Qnt da busca";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+        }
+
+
     }
 
     @Test(priority = 4, description = "Valida fluxo de busca de vagas")
@@ -56,7 +84,20 @@ public class BlogTests extends Hooks {
                 .buscaPorMenuAgi(indexBusca)
                 .escolhaPost()
                 .validaPost();
-        Assert.assertTrue(acessouVagaPage, "vagas não disponiveis");
+
+        try {
+            Assert.assertTrue(acessouVagaPage, "vagas não disponiveis");
+
+
+        }catch(AssertionError e){
+
+            String LogError = "Erro na busca por Vagas ";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+        }
+
     }
 
     @Test(priority = 5, description = "Valida acesso para pagina Carreira pelo menu")
@@ -67,7 +108,20 @@ public class BlogTests extends Hooks {
                 .acessaHomePage()
                 .acesCarreiraPageMenu()
                 .getCarreiraTitle();
-        Assert.assertEquals(tituloAtual, tituloEsperado, "Titulo diferente do esperado");
+
+        try {
+            Assert.assertEquals(tituloAtual, tituloEsperado, "Titulo diferente do esperado");
+
+
+        }catch(AssertionError e){
+
+            String LogError = "Erro no Titulo pagina Carreiras";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+        }
+
     }
 
     @AfterMethod

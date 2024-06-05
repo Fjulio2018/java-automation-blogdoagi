@@ -26,8 +26,19 @@ public class HomePageTests extends Hooks {
         initialize();
         boolean acessouhomePage = new HomePage(navegador)
                 .certificaHomePage();
+        try {
+            Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
 
-        Assert.assertTrue(acessouhomePage, "Titulo não esta em conformidade");
+        }catch(AssertionError e){
+
+            String LogError = "Erro no Titulo";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+        }
+
+
     }
 
     @Test(priority = 2, description = "Validacao da quantidade de links de Suas Financas na HomePage")
@@ -36,7 +47,19 @@ public class HomePageTests extends Hooks {
         int qntLinkAtual = new HomePage(navegador)
                 .quantLinkFinancas();
 
-        Assert.assertEquals(qntLinkAtual, qntLinkEsperado, "Quantidade de link financas não esperada");
+
+
+        try {
+            Assert.assertEquals(qntLinkAtual, qntLinkEsperado, "Erro qnt link de 'Suas Financas'");
+
+        }catch(AssertionError e){
+
+            String LogError = "Erro na Qnt link de 'Suas Financas'";
+
+            getScreenshot(LogError);
+            Assert.fail();
+
+        }
     }
 
 

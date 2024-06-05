@@ -1,8 +1,6 @@
 package br.com.blogdoagi.utils.hooks;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,6 +10,11 @@ import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import javax.imageio.ImageIO;
+
 
 public class Hooks {
     protected WebDriver navegador;
@@ -61,50 +64,31 @@ public class Hooks {
         return Normalizer.normalize(str, Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
+
     protected String getScreenshotSavePath() {
         String packageName = this.getClass().getPackage().getName();
-        File dir = new File(System.getProperty("user.dir")+File.separator+"screenshot"+File.separator + packageName + File.separator);
+        File dir = new File(System.getProperty("user.dir") + File.separator + "screenshot_error" + File.separator + packageName + File.separator);
         dir.mkdirs();
         return dir.getAbsolutePath();
     }
 
-    protected void getScreenshot() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+
+    protected void getScreenshot(String LogError) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
         String date = sdf.format(new Date());
         String url = navegador.getCurrentUrl().replaceAll("[\\/:*\\?\"<>\\|]", "_");
         String ext = ".png";
-        String path = getScreenshotSavePath() + File.separator + date + "_" + url + ext;
+        String path = getScreenshotSavePath() + File.separator + date + "_" + LogError + ext;
 
         try {
-            if (navegador instanceof TakesScreenshot) {
-                File tmpFile = ((TakesScreenshot) navegador).getScreenshotAs(OutputType.FILE);
-                org.openqa.selenium.io.FileHandler.copy(tmpFile, new File(path));
-//                log.error("Captured Screenshot for Failure: "+path);
-            }
+            Screenshot screenshot = new AShot()
+                    .shootingStrategy(ShootingStrategies.viewportPasting(1000))
+                    .takeScreenshot(navegador);
+
+            ImageIO.write(screenshot.getImage(), "PNG", new File(path));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    /**
-     * Assert Actual and Expected Strings
-     */
-
-    protected void assertStrings(String actual, String expected){
-
-
-        try{
-            Assert.assertEquals(actual, expected);
-//            log.info("Actual string: [ "+actual+" ] does match with Expected string: [ "+expected+" ]");
-
-        }catch(AssertionError e){
-//            log.error("Actual string: [ "+actual+" ] does not match with Expected string: [ "+expected+" ]");
-            getScreenshot();
-            Assert.fail();
-
-        }
-
     }
 
 }
