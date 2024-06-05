@@ -80,16 +80,11 @@ Os relatórios de execução podem ser encontrados no diretório `test-output/Al
 ```gherkin
 
 # language: pt
+# Build by Francis Nascis
 
 Funcionalidade: Validação do Blog Agi
 
-
-Cenário: Acesso a HomePage
-
-
-    Dado que acesse a URL "https://blogdoagi.com.br/"
-    Quando acessar HomePage
-    Então Contexto:
+  Contexto:
     Dado que acesse uma página do Blog
 
   Cenário: Acesso a HomePage
