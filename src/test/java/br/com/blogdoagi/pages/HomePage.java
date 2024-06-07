@@ -2,11 +2,16 @@ package br.com.blogdoagi.pages;
 
 import br.com.blogdoagi.bases.BasePage;
 import br.com.blogdoagi.utils.config.ConfigLoader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static br.com.blogdoagi.utils.hooks.Hooks.normalizarString;
@@ -19,8 +24,12 @@ public class HomePage extends BasePage {
 
     @FindBy(css = "div.uagb-post__text > span.uagb-post__taxonomy.highlighted > a[href*=\"produtos\"] ")
     private WebElement linkProdutoPage;
-    @FindBy(css = "div.uagb-post__text > span.uagb-post__taxonomy.highlighted > a[href*=\"suas-financas\"] ")
-    private List<WebElement> linkSuasFinancasPage;
+    @FindBy(css = "article.uagb-post__inner-wrap .uagb-post__taxonomy a")
+    private List<WebElement> linksSuasFinancasPage;
+    @FindBy(css = "article.uagb-post__inner-wrap .uagb-post__cta a")
+    private List<WebElement> linkslerTextoLinks ;
+
+    WebDriverWait wait = new WebDriverWait(navegador, Duration.ofSeconds(10));
 
 
 
@@ -72,10 +81,22 @@ public class HomePage extends BasePage {
         return new ResultadoPage(navegador);
     }
 
-    public int quantLinkFinancas(){
+    public int quantLinksFinancas(){
 
         acessaHomePage();
-        return  linkSuasFinancasPage.size();
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("article.uagb-post__inner-wrap .uagb-post__taxonomy a")));
+        return linksSuasFinancasPage.size();
+
+
+
+    }
+
+    public int quantLinksLerTexto(){
+
+        acessaHomePage();
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("article.uagb-post__inner-wrap .uagb-post__cta a")));
+        return linkslerTextoLinks.size();
+
 
 
     }
