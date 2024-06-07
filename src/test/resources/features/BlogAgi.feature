@@ -16,7 +16,7 @@ Funcionalidade: Validação do Blog Agi
 
   Cenário: Validação da quantidade de links ler texto na HomePage
     Quando pesquisar a quantidade de links para textos nas "Últimas do Blog do Agi"
-    Então valido que são 6 links na página
+    Então valido que são 22 links na página
 
   Cenário: Validação do Menu Agi
     Quando validar o Menu
